@@ -1,0 +1,252 @@
+Instructions to read this document. 
+
+The lines starting with # are comments and not to be executed. 
+
+
+#Open Terminal on your Ubuntu Machine and type the following on the terminal
+
+cd $HOME
+
+sudo apt-get update
+----------------------------------------------------------------------
+
+# Now Create the following directories by running the following commands on the terminal
+
+mkdir -p $HOME/source
+
+mkdir -p $HOME/server/smartloan
+mkdir -p $HOME/log/smartloan
+
+mkdir -p $HOME/.smartloan
+
+mkdir -p $HOME/smartloandoc
+mkdir -p $HOME/smartloanpublicdoc
+
+
+#Now we will configure the short path for these folders. Run the following command on the prompt and it will open a file on the editor
+
+gedit ~/.bashrc 
+
+#save the following in the last of the file and then Save the file and then close the file 
+
+export SL_CODE=$HOME/source/smartloan-server
+export SL_SERVER=$HOME/server/smartloan
+export SL_LOG=$HOME/log/smartloan
+
+# After this go to the terminal and run the following command
+source ~/.bashrc
+
+
+-----------------------------------------------------------------------
+
+#Installing GIT on the system
+
+#Run the following commands on the terminal
+
+sudo apt-get update
+
+sudo apt-get install git
+
+#Down load the code to the source folder
+
+cd $HOME/source
+
+git clone https://bitbucket.org/kush_s/smartloan-server
+
+
+------------------------------------------------------------------------
+
+# Insalling of the jdk
+#Run the following commands on the terminal
+
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java8-installer
+
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+
+# Installing of spring STS
+
+# Go to the following site and download the STS
+https://spring.io/tools/sts
+
+#Unzip the STS Folder and find the file named STS and open it. 
+
+Open STS and in the dashboard click on the "Extensions" tab.
+Search for "Gradle" or "Groovy" depending on you are installing, select it and click "Install".
+Review the list of software that will be installed and click "Next".
+Review and accept licence agreements and click "Finish".
+
+-----------------------------------------------------------------------
+
+# Install Mysql by running the following commands on the terminal. This will ask you to enter a root password. Please choose a pasword that you remember
+
+sudo apt-get update
+sudo apt-get install mysql-server 
+
+-----------------------------------------------------------------------
+
+# Installation of mongo server (https://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/)
+#Run the following commands on the terminal
+
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
+
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list
+
+sudo apt-get update
+
+sudo apt-get install -y mongodb-org
+
+sudo apt-get install -y mongodb-org=3.6.3 mongodb-org-server=3.6.3 mongodb-org-shell=3.6.3 mongodb-org-mongos=3.6.3 mongodb-org-tools=3.6.3
+
+sudo service mongod start
+
+-----------------------------------------------------------------------
+
+# Install Gradle by going throrugh the following url https://services.gradle.org/distributions/ and download the gradle-2.8-all.zip and save it to the following folder 
+$HOME/source/gradle-2.8-all.zip. On the terminal write echo $HOME to get the path of Home. It should ideallly be /home/efhl/
+#Now unzip the gradle file
+
+cd $HOME/source
+
+unzip gradle-2.8-all.zip
+
+rm -rf gradle-2.8-all.zip
+
+#Now configure the gradle path into the bash rc file and add the commands mentioned in the last. 
+
+gedit ~/.bashrc
+
+GRADLE_HOME=$HOME/gradle-2.8/bin
+PATH=$PATH:$GRADLE_HOME
+export GRADLE_HOME
+export PATH
+
+#close the file after that and run the following command on the terminal
+
+source ~/.bashrc
+
+----------------------------------------------------------------------------------
+
+#Testing whether everything is alright. Build the code that is installed. 
+#Type the following command on the terminal
+
+cd $SL_CODE/code
+
+#and run the follwing command
+
+gradle build -x test
+
+
+-----------------------------------------------------------------------
+#Configure Server and Start Server
+
+# First startt the mongo db server by running the following commands
+
+sudo service mongod start
+
+# First startt the mysql db server by running the following command
+
+sudo service mysql start
+
+----
+#Now we will create the data base and then configure it. 
+
+#Run the folllwing command on the terminal. It will ask for the root password that you configured while installing mysql. Give that password
+
+mysql -h localhost -u root -p
+
+#On the mysql prompt run the following commands
+
+mysql>create database smartloan;
+mysql>CREATE USER sl_user@'localhost' IDENTIFIED BY 'abc1234';
+mysql>GRANT ALL PRIVILEGES ON smartloan.* TO sl_user@'localhost';
+mysql>create database quartz;
+mysql>CREATE USER sl_quartz@'localhost' IDENTIFIED BY 'abc1234';
+mysql>GRANT ALL PRIVILEGES ON quartz.* TO sl_quartz@'localhost';
+mysql>exit;
+
+#At this moment the DB is fully configured. Now we need to cread the tables
+
+#Now go to the following folder on the terminal
+cd $SL_CODE/code/db-scripts/src/sql/
+
+#Run the following command on the terminal. It will ask for password. Give abc1234
+cat *.sql | mysql -h localhost -u sl_user -p smartloan -f
+
+
+#Now go to the following folder on the terminal
+cd $SL_CODE/code/db-scripts/src/sql/quartz
+
+#Run the following command on the terminal. It will ask for password. Give abc1234
+
+cat *.sql | mysql -h localhost -u sl_quartz -p quartz -f
+
+---------------------------------------
+
+#To start the server Run the following commands on the terminal
+
+cp $SL_CODE/etc/*.* $HOME/.smartloan/
+
+cp -r $SL_CODE/serverDeployment/* $SL_SERVER
+
+
+#open the $HOME/.smartloan/server.properties and change this to full path
+
+gedit $HOME/.smartloan/server.properties
+
+folderName.for.loan.docs=/home/ehfl/smartloandoc
+cdn.folder.for.public.docs=/home/ehfl/smartloanpublicdoc
+
+
+# Build and deploy the code again. Go to the command prompt and put the following commands
+
+cd $SL_CODE/code
+gradle build -x test
+gradle copyFiles --rerun-tasks copyWars
+
+---------------------------------------------------
+ 
+#Population of seed data into the system
+
+#Go to this folder abd run the following command
+ 
+cd $SL_CODE/code/seed-data
+
+gradle run
+
+#After this open the file build.gradle and replace the string originLoader,mongoParamDataLoader,messageLoader with rootSalesEmployeeLoader and Save the file. 
+
+gedit build.gradle 
+
+#Then run the seed data again
+
+gradle run
+
+----------------------------------------------------
+
+#Configuring the system and running it
+#Open the following folder on the terminal
+
+cd $SL_SERVER/bin
+
+#and run the following commands
+
+chmod 766 sl
+chmod 766 wrapper
+
+#And then type the following command
+./sl restart
+
+#After 2 minutes login to the portal as 
+
+http://localhost:8080/portal/login/
+
+login using - 9820566009 and pin as prerak567
+
+#for checking the logs please tail by going to the terminald and running the following command
+
+tail -100f $SL_LOG/2018_02_27.stderrout.log (example - the file name will change based on the date)
+
+

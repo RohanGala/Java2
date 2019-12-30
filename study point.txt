@@ -1,0 +1,263 @@
+1 ) Core Java
+
+ImmutableClass 
+
+http://java-questions.com/ImmutableClass_interview_questions.html
+
+jvm, jre , sdk
+
+http://javapapers.com/core-java/differentiate-jvm-jre-jdk-jit/
+
+difference between java 1.5 and 1.6
+
+http://wiki.answers.com/Q/What_is_the_difference_between_java_1.5_and_1.6
+http://docs.oracle.com/javase/6/docs/technotes/guides/collections/changes6.html
+
+difference between java 1.6 and 1.7
+
+http://www.rapidprogramming.com/tutorial/List-Java-1-7-Features-418
+http://www.rapidprogramming.com/questions-answers/Differences-between-Java-1-6-Java-1-7-JDK-1-6-JDK-1-7--934
+
+string
+
+http://geekexplains.blogspot.in/2009/11/why-string-has-been-made-immutable-in.html
+http://javarevisited.blogspot.in/2010/10/why-string-is-immutable-in-java.html
+
+
+collection
+HashCode Working
+
+http://howtodoinjava.com/2012/10/09/how-hashmap-works-in-java/
+http://www.fromdev.com/2008/05/java-collections-questions.html
+
+
+http://way2java.com/collections/java-collections-interfaces-hierarchy/
+http://mkbansal.wordpress.com/2010/06/24/hashmap-how-it-works/
+
+
+
+servlet
+
+http://javarevisited.blogspot.in/2011/09/servlet-interview-questions-answers.html
+http://www.developersbook.com/servlets/interview-questions/servlets-interview-questions-faqs.php
+
+jsp
+
+http://javapapers.com/jsp/explain-the-jsp-implicit-objects/
+http://javapapers.com/jsp/jsp-life-cycle-explain/
+http://www.javatpoint.com/exception-handling-in-jsp
+http://www.zentut.com/jsp-tutorial/understanding-jsp-life-cycle/
+http://www.w3schools.com/tags/att_form_enctype.asp
+http://www.tutorialspoint.com/jsp/jsp_standard_tag_library.htm
+
+
+java adavateges
+features
+
+generics
+http://en.wikipedia.org/wiki/Generics_in_Java
+http://stackoverflow.com/questions/252055/java-generics-wildcards
+http://docs.oracle.com/javase/tutorial/java/generics/types.html
+
+thread
+why java is pass by value
+constructor
+serilization
+Junit
+http://www.vogella.com/articles/JUnit/article.html
+gargage collector
+arraylist comparison
+java object creation method
+interface
+abstact class,Interface
+oops concept
+
+exception handling
+
+http://www.java-connect.com/exception/the-hierarchy-of-exception-in-java.html
+http://java-questions.com/Exceptions_interview_questions.html
+
+static import
+boxing , unboxing, downcasting , upcasting.
+overloading , overriding.
+classloaders
+static , init block
+inheritance
+polymorphism
+equals and hashcode
+
+marker interfaces
+http://geekexplains.blogspot.in/2009/10/marker-interface-in-java-what-why-uses.html?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed:+GeekExplains+%28Geek+Explains%29
+
+mvc
+http://www.codeproject.com/Articles/556995/Model-view-controller-MVC-Interview-questions-and
+http://careerride.com/MVC-benefits.aspx
+
+difference between webserver and application server
+
+http://javarevisited.blogspot.in/2012/05/5-difference-between-application-server.html
+
+comparator, comparable
+final
+finaly
+
+finalize 
+
+http://javarevisited.blogspot.in/2012/03/finalize-method-in-java-tutorial.html
+ 
+
+wrapper classes
+
+http://careerride.com/Java-wrapper-classes.aspx
+
+details about main 
+
+http://javarevisited.blogspot.in/2011/12/main-public-static-java-void-method-why.html
+
+static word
+
+http://www.javatpoint.com/static-keyword-in-java
+
+What is Connection Pooling? Why do we need it?
+
+http://geekexplains.blogspot.in/2008/06/what-is-connection-pooling-why-do-we.
+http://geekexplains.blogspot.in/2008/06/what-is-connection-pooling-why-do-we.html
+
+JDBC
+
+http://www.developersbook.com/jdbc/interview-questions/jdbc-interview-questions-faqs.php
+http://www.techinterviews.com/jdbc-interview-questions-and-answers
+http://java67.blogspot.in/2012/12/jdbc-interview-questions-answers-in-Java-2-4-years-experienced.html
+http://sharat.wordpress.com/2006/09/09/52-what-is-the-difference-between-resultset-and-rowset/
+
+Invoking Class.forName() passing the JDBC Driver ClassName to be loaded, loads the JDBC Driver class and static block will be executed so that implicitly JDBC Driver gets registered with DriverManager...
+
+So, overhead of making Driver registration in DriverManager list manually is avoided...
+
+
+
+isolation levels of transaction
+
+http://db.apache.org/derby/docs/10.0/manuals/develop/develop71.html
+http://publib.boulder.ibm.com/infocenter/iseries/v5r3/index.jsp?topic=%2Frzaha%2Ftransiso.htm
+http://publib.boulder.ibm.com/infocenter/cicsts/v3r2/index.jsp?topic=%2Fcom.ibm.cics.ts.productoverview.doc%2Fconcepts%2Facid.html
+http://avricot.com/blog/index.php?post/2010/05/11/Java-MultiThread-singleton-LocalThread-vs-Double-Check-Locked-(dcl)-vs-synchronized-vs-static
+
+
+cloning
+ 
+http://javapapers.com/core-java/java-clone-shallow-copy-and-deep-copy/
+
+Overall Questions
+
+http://java67.blogspot.sg/2012/09/top-10-tough-core-java-interview-questions-answers.html
+http://www.developersbook.com/corejava/interview-questions/corejava-interview-questions-faqs-3.php
+
+
+
+
+
+
+2 ) Adavance java
+
+Struts 1.2
+
+http://www.developersbook.com/struts/interview-questions/struts-interview-questions-faqs.php
+http://www.dzone.com/tutorials/css/struts
+
+Hibernate 2.0 
+Hibernate 3.0
+
+http://www.developersbook.com/hibernate/interview-questions/hibernate-interview-questions-faqs.php
+http://www.roseindia.net/hibernate/hibernate4/HibernateSessionFactory.shtml
+
+Spring 2.5
+
+
+
+3 ) Projects
+
+core elixir
+Jisa
+Fsa.
+bps
+
+
+
+
+4) Databse
+
+oracle
+
+procudere 
+functions
+diff betw procedure and functions
+triggers
+types of triggers
+cursors
+types of cursors
+views 
+types of view
+indexes
+rowid , rownum
+joins
+what are constarints
+diff betw inner and outer
+left /right outer join
+aggregate functions
+union intersect 
+exception handling in sql
+
+diff betw delete and truncate
+http://www.orafaq.com/faq/difference_between_truncate_delete_and_drop_commands
+
+Sql Queries
+
+2nd max
+identify duplicate rows, delete them
+departmentwise emplOy count (group by clause+outer join)
+total employ count having salary>10000(grouup by+having clause)
+outer join queries
+create table from other one
+self join - employ count reporung to manager, employ-manager name
+
+theory
+acidic property
+isolation level of transaction(read commited, un commited , phantom read, dirty read , serilizable)
+http://www.oracle.com/technetwork/issue-archive/2005/05-nov/o65asktom-082389.html
+
+http://www.gointerviews.com/top-50-sql-question-answers/
+http://www.programmerinterview.com/index.php/database-sql/advanced-sql-interview-questions-and-answers/
+
+5 )Design pattern
+
+http://www.avajava.com/tutorials/categories/design-patterns
+http://www.codeproject.com/Articles/38631/Strategy-Design-Pattern
+
+
+6) Web Services
+
+7)XML(sax, dom , jibix, jaxb)
+
+8)UML
+
+http://javapapers.com/oops/association-aggregation-composition-abstraction-generalization-realization-dependency/
+
+9) Javascript , css. jQuery
+
+10) DS Alogorithm
+
+11) Webservices
+
+http://www.tutorialspoint.com/wsdl/wsdl_example.htm
+
+http://cs.au.dk/~amoeller/WWW/webservices/wsdlexample.html
+
+http://java-success.blogspot.in/2012/02/java-web-services-interview-questions.html 
+
+12) SOA
+http://javajeetechnology.weebly.com/webservices-interview-questions.html
+
+http://www.accenture.com/us-en/Pages/service-soa-business-benefits.aspx
+
+http://www.techterms.com/definition/soap

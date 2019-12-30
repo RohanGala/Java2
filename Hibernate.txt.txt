@@ -1,0 +1,70 @@
+
+
+
+http://www.gointerviews.com/hibernate-interview-questions/
+http://www.javalobby.org/java/forums/t104442.html
+http://java-success.blogspot.in/2012/01/hibernate-interview-q-with-annotations.html
+http://www.developersbook.com/hibernate/interview-questions/hibernate-interview-questions-faqs.php
+http://www.java4s.com/hibernate/generators-in-hibernate/
+http://www.javagyan.com/preparing-for-an-interview/hibernate-interview-questions
+http://javarevisited.blogspot.in/2012/09/difference-hibernate-save-vs-persist-and-saveOrUpdate.html
+http://learningviacode.blogspot.in/2012/02/write-behind-technique-in-hibernate.html
+http://www.coolinterview.com/interview/26861/
+http://www.javabeat.net/2009/02/hibernate-interview-questions/
+http://www.mkyong.com/hibernate/how-to-call-store-procedure-in-hibernate/
+
+
+optimistic-locking
+http://stackoverflow.com/questions/10119787/optimistic-locking-in-hibernate-by-default
+
+
+http://www.javabeat.net/2008/07/three-ways-to-create-query-in-hibernate/
+
+hbm2ddl.auto
+http://blog.eyallupu.com/2007/05/hibernates-hbm2ddl-tool.html
+http://stackoverflow.com/questions/438146/hibernate-hbm2ddl-auto-possible-values-and-what-they-do
+
+
+detached objects
+http://stackoverflow.com/questions/2573739/what-are-detached-persistance-and-transient-object-in-hibernate 
+
+HQL
+http://www.javatpoint.com/hql
+polymorphic queries
+http://anujhibernate.blogspot.in/2012/10/table-per-concrete-class-with-implicit.html
+
+diff betw jdbc and hibernate
+http://www.javaken.com/forum/showthread.php?t=1176
+http://www.java4s.com/hibernate/main-advantage-and-disadvantages-of-hibernates/
+
+diff sessionfacory.opensesson , getcurrent session
+http://www.techfaq360.com/viewFreshers.jsp?tutorialId=840
+
+cache
+http://stackoverflow.com/questions/15644000/ehcache-whether-objects-are-eternal-or-not
+http://ehcache.org/documentation/user-guide/configuration
+http://www.javabeat.net/2007/10/introduction-to-hibernate-caching/
+http://www.tutorialspoint.com/hibernate/hibernate_caching.htm
+
+fetching strategies
+http://www.mkyong.com/hibernate/hibernate-fetching-strategies-examples/
+
+
+inheritance models 
+http://www.java-samples.com/showtutorial.php?tutorialid=845
+
+
+query cache
+wat type of cache session factory holds
+caching strategies
+
+
+
+Doing session.evict(obj) will remove the object instance from the session cache. Therefore if you are saving the object for the first time, you will have to explicitly commit via session.save(obj) before evicting the object from the cache. Subsequent update calls shoud follow through session.saveOrUpdate(obj) or session.update(obj) before calling calling evict to remove the loaded object from the cache.
+
+
+
+openSession() is actually creating a new session every time it is called.  you have to close once you are done with the operations. 
+getCurrentSession() returns a session associated with the current context, that may or may not be a jta transaction. It may be a new one or the one previously used in the same context. 
+you don't need to close this
+
